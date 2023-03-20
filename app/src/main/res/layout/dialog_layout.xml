@@ -11,7 +11,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center_horizontal"
         android:layout_marginBottom="16dp"
-        android:text="Choose an action:"
+        android:text="Choose an action"
         android:textSize="18sp"
         android:textStyle="bold"
         android:textColor="@color/greentext"/>
@@ -39,9 +39,19 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_marginBottom="8dp"
-        android:text="Call us"
+        android:text="Call them"
         android:textColor="@color/white"
         android:background="@drawable/button_color"/>
+
+    <Button
+        android:id="@+id/btnOpenWebSite"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginBottom="8dp"
+        android:text="WebSite or Facebook"
+        android:textColor="@color/white"
+        android:background="@drawable/button_color"/>
+
 
 </LinearLayout>
 
