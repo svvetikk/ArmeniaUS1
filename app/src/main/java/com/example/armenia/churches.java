@@ -14,13 +14,13 @@ import android.view.View;
 import android.widget.Button;
 import android.widget.ImageView;
 
-//import com.google.maps.DirectionsApi;
-//import com.google.maps.DirectionsApiRequest;
-//import com.google.maps.GeoApiContext;
-//import com.google.maps.TravelMode;
-//import com.google.maps.model.DirectionsResult;
-//import com.google.maps.model.DirectionsStep;
-//import com.google.maps.model.LatLng;
+import com.google.maps.DirectionsApi;
+import com.google.maps.DirectionsApiRequest;
+import com.google.maps.GeoApiContext;
+import com.google.maps.TravelMode;
+import com.google.maps.model.DirectionsResult;
+import com.google.maps.model.DirectionsStep;
+import com.google.maps.model.LatLng;
 
 
 
@@ -63,62 +63,62 @@ public class churches extends AppCompatActivity {
                 openMapButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Log.d("MyApp", "Button clicked");
-                        Uri gmmIntentUri = Uri.parse("google.navigation:q=Big+Ben,+London");
-                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                        mapIntent.setPackage("com.google.android.apps.maps");
-                        if(mapIntent.resolveActivity(getPackageManager()) != null) {
-                            Log.d("MyApp", "Starting activity");
-                            startActivity(mapIntent);
-                        }
-
-
 //                        Log.d("MyApp", "Button clicked");
-//
-//                        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
-//                        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
-//
-//                        double currentLat = location.getLatitude();
-//                        double currentLng = location.getLongitude();
-//
 //                        Uri gmmIntentUri = Uri.parse("google.navigation:q=Big+Ben,+London");
 //                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
 //                        mapIntent.setPackage("com.google.android.apps.maps");
-//                        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+//                        if(mapIntent.resolveActivity(getPackageManager()) != null) {
 //                            Log.d("MyApp", "Starting activity");
-//
-//                            // Use the Directions API to get the route information
-//                            GeoApiContext context = new GeoApiContext.Builder()
-//                                    .apiKey("YOUR_API_KEY")
-//                                    .build();
-//
-//                            DirectionsApiRequest request = DirectionsApi.newRequest(context)
-//                                    .origin(new com.google.maps.model.LatLng(currentLat, currentLng))
-//                                    .destination("Big Ben, London");  // You can change the mode to walking or transit if needed
-//
-//                            try {
-//                                DirectionsResult result = request.await();
-//
-//                                // Build the intent to show the route on the map with the route information
-//                                Uri mapsIntentUri = Uri.parse("google.navigation:q=Big+Ben,+London&mode=d&rtp=");
-//                                for (DirectionsStep step : result.routes[0].legs[0].steps) {
-//                                    LatLng latLng = new LatLng(step.endLocation.lat, step.endLocation.lng);
-//                                    String latLngStr = Double.toString(latLng.latitude) + "," + Double.toString(latLng.longitude);
-//                                    mapsIntentUri = mapsIntentUri.buildUpon()
-//                                            .appendQueryParameter("ll", latLngStr)
-//                                            .build();
-//                                }
-//                                Intent mapsIntent = new Intent(Intent.ACTION_VIEW, mapsIntentUri);
-//                                mapsIntent.setPackage("com.google.android.apps.maps");
-//
-//                                // Start the activity to show the route on the map
-//                                startActivity(mapsIntent);
-//
-//                            } catch (Exception ex) {
-//                                ex.printStackTrace();
-//                            }
+//                            startActivity(mapIntent);
 //                        }
-//
+
+
+                        Log.d("MyApp", "Button clicked");
+
+                        LocationManager locationManager = (LocationManager) getSystemService(Context.LOCATION_SERVICE);
+                        Location location = locationManager.getLastKnownLocation(LocationManager.GPS_PROVIDER);
+
+                        double currentLat = location.getLatitude();
+                        double currentLng = location.getLongitude();
+
+                        Uri gmmIntentUri = Uri.parse("google.navigation:q=Big+Ben,+London");
+                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
+                        mapIntent.setPackage("com.google.android.apps.maps");
+                        if (mapIntent.resolveActivity(getPackageManager()) != null) {
+                            Log.d("MyApp", "Starting activity");
+
+                            // Use the Directions API to get the route information
+                            GeoApiContext context = new GeoApiContext.Builder()
+                                    .apiKey("YOUR_API_KEY")
+                                    .build();
+
+                            DirectionsApiRequest request = DirectionsApi.newRequest(context)
+                                    .origin(new com.google.maps.model.LatLng(currentLat, currentLng))
+                                    .destination("Big Ben, London");  // You can change the mode to walking or transit if needed
+
+                            try {
+                                DirectionsResult result = request.await();
+
+                                // Build the intent to show the route on the map with the route information
+                                Uri mapsIntentUri = Uri.parse("google.navigation:q=Big+Ben,+London&mode=d&rtp=");
+                                for (DirectionsStep step : result.routes[0].legs[0].steps) {
+                                    LatLng latLng = new LatLng(step.endLocation.lat, step.endLocation.lng);
+                                    String latLngStr = Double.toString(latLng.latitude) + "," + Double.toString(latLng.longitude);
+                                    mapsIntentUri = mapsIntentUri.buildUpon()
+                                            .appendQueryParameter("ll", latLngStr)
+                                            .build();
+                                }
+                                Intent mapsIntent = new Intent(Intent.ACTION_VIEW, mapsIntentUri);
+                                mapsIntent.setPackage("com.google.android.apps.maps");
+
+                                // Start the activity to show the route on the map
+                                startActivity(mapsIntent);
+
+                            } catch (Exception ex) {
+                                ex.printStackTrace();
+                            }
+                        }
+
                     }
                 });
 
