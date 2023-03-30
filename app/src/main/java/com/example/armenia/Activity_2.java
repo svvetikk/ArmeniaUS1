@@ -11,7 +11,7 @@ public class Activity_2 extends AppCompatActivity {
 
     private Button gotoChurch;
     private Button gotoMuseums;
-    private Button gotoExtreme;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,11 +20,10 @@ public class Activity_2 extends AppCompatActivity {
 
         gotoChurch = findViewById(R.id.ekexeci);
         gotoMuseums = findViewById(R.id.tangaran);
-        gotoExtreme = findViewById(R.id.fun);
 
         gotoChurch.setOnClickListener(view -> startNewActivity(churches.class));
         gotoMuseums.setOnClickListener(view -> startNewActivity(museums.class));
-        gotoExtreme.setOnClickListener(view -> startNewActivity(extreme.class));
+
     }
 
     private void startNewActivity(Class<?> cls) {

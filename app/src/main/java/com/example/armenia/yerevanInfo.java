@@ -9,15 +9,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class gexardInfo extends AppCompatActivity {
+public class yerevanInfo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_gexard_info);
-
+        setContentView(R.layout.activity_yerevan_info);
+        setContentView(R.layout.activity_garni_info);
         try {
-            InputStream inputStream = getResources().openRawResource(R.raw.gexard);
+            InputStream inputStream = getResources().openRawResource(R.raw.yerevan);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int i;
             i = inputStream.read();

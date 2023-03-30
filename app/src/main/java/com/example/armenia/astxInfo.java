@@ -9,15 +9,15 @@ import java.io.ByteArrayOutputStream;
 import java.io.IOException;
 import java.io.InputStream;
 
-public class hamoInfo extends AppCompatActivity {
+public class astxInfo extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_hamo_info);
-
+        setContentView(R.layout.activity_astx_info);
+        setContentView(R.layout.activity_garni_info);
         try {
-            InputStream inputStream = getResources().openRawResource(R.raw.hamo);
+            InputStream inputStream = getResources().openRawResource(R.raw.astx);
             ByteArrayOutputStream byteArrayOutputStream = new ByteArrayOutputStream();
             int i;
             i = inputStream.read();

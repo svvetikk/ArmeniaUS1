@@ -11,9 +11,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
-
-
-
+import android.widget.ImageView;
 
 
 public class museums extends AppCompatActivity {
@@ -23,10 +21,10 @@ public class museums extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_museums);
 
-        Button toHamo = findViewById(R.id.hamo);
+        ImageView toAstx = findViewById(R.id.astx);
 
 
-        toHamo.setOnClickListener(new View.OnClickListener() {
+        toAstx.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
 
@@ -40,7 +38,7 @@ public class museums extends AppCompatActivity {
                 openActivityButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Intent intent = new Intent(museums.this,hamoInfo.class);
+                        Intent intent = new Intent(museums.this,astxInfo.class);
                         startActivity(intent);
                     }
                 });
@@ -48,10 +46,11 @@ public class museums extends AppCompatActivity {
                 openMapButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Uri gmmIntentUri = Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California");
-                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                        mapIntent.setPackage("com.google.android.apps.maps");
-                        startActivity(mapIntent);
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("google.navigation:q=39.492626,45.250405&mode=d"));
+                        intent.setPackage("com.google.android.apps.maps");
+                        startActivity(intent);
                     }
                 });
 
@@ -60,7 +59,7 @@ public class museums extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(Intent.ACTION_DIAL);
-                        intent.setData(Uri.parse("tel:096145005"));
+                        intent.setData(Uri.parse("tel:091195903"));
                         startActivity(intent);
                     }
                 });
@@ -68,7 +67,7 @@ public class museums extends AppCompatActivity {
                 websiteButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View v) {
-                        String url = "https://https://www.facebook.com/people/Hamo-Sahyans-Museum%D5%80%D5%A1%D5%B4%D5%B8-%D5%8D%D5%A1%D5%B0%D5%B5%D5%A1%D5%B6%D5%AB-%D5%BF%D5%B8%D6%82%D5%B6-%D5%A9%D5%A1%D5%B6%D5%A3%D5%A1%D6%80%D5%A1%D5%B6/100057698520105/";
+                        String url = "https://www.bao.am/about/about/about.php?lang=1";
                         Intent intent = new Intent(Intent.ACTION_VIEW);
                         intent.setData(Uri.parse(url));
                         startActivity(intent);
@@ -87,7 +86,7 @@ public class museums extends AppCompatActivity {
 
 
 
-        Button toYexeg = findViewById(R.id.yexeg);
+        ImageView toYexeg = findViewById(R.id.yexeg);
         toYexeg.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -111,10 +110,11 @@ public class museums extends AppCompatActivity {
                 openMapButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Uri gmmIntentUri = Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California");
-                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                        mapIntent.setPackage("com.google.android.apps.maps");
-                        startActivity(mapIntent);
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("google.navigation:q=39.760164,45.334886&mode=d"));
+                        intent.setPackage("com.google.android.apps.maps");
+                        startActivity(intent);
                     }
                 });
 
@@ -123,7 +123,7 @@ public class museums extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(Intent.ACTION_DIAL);
-                        intent.setData(Uri.parse("tel:096145005"));
+                        intent.setData(Uri.parse("tel: 08123392"));
                         startActivity(intent);
                     }
                 });
@@ -146,7 +146,7 @@ public class museums extends AppCompatActivity {
             }
         });
 
-        Button toKoxb = findViewById(R.id.koxb);
+        ImageView toKoxb = findViewById(R.id.koxb);
         toKoxb.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -170,10 +170,11 @@ public class museums extends AppCompatActivity {
                 openMapButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Uri gmmIntentUri = Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California");
-                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                        mapIntent.setPackage("com.google.android.apps.maps");
-                        startActivity(mapIntent);
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("google.navigation:q=41.168878,44.990276&mode=d"));
+                        intent.setPackage("com.google.android.apps.maps");
+                        startActivity(intent);
                     }
                 });
 
@@ -204,8 +205,68 @@ public class museums extends AppCompatActivity {
                 alertDialog.show();
             }
         });
+        ImageView toYerevan = findViewById(R.id.yerevan);
+        toYerevan.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        Button toMher = findViewById(R.id.mher);
+                View dialogView = getLayoutInflater().inflate(R.layout.dialog_layout, null);
+
+                Button openActivityButton = dialogView.findViewById(R.id.btnOpenActivity);
+                Button openMapButton = dialogView.findViewById(R.id.btnOpenMap);
+                Button callButton = dialogView.findViewById(R.id.btnCall);
+                Button websiteButton = dialogView.findViewById(R.id.btnOpenWebSite);
+
+
+                openActivityButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(museums.this,yerevanInfo.class);
+                        startActivity(intent);
+                    }
+                });
+
+                openMapButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View view) {
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("google.navigation:q=40.184008,44.516069&mode=d"));
+                        intent.setPackage("com.google.android.apps.maps");
+                        startActivity(intent);
+                    }
+                });
+
+                callButton.setOnClickListener(new View.OnClickListener() {
+
+                    @Override
+                    public void onClick(View view) {
+                        Intent intent = new Intent(Intent.ACTION_DIAL);
+                        intent.setData(Uri.parse("tel:010568108"));
+                        startActivity(intent);
+                    }
+                });
+
+                websiteButton.setOnClickListener(new View.OnClickListener() {
+                    @Override
+                    public void onClick(View v) {
+                        String url = "https://yhm.am/?lang=ru";
+                        Intent intent = new Intent(Intent.ACTION_VIEW);
+                        intent.setData(Uri.parse(url));
+                        startActivity(intent);
+                    }
+                });
+
+
+                AlertDialog alertDialog = new AlertDialog.Builder(museums.this)
+                        .setView(dialogView)
+                        .create();
+                alertDialog.show();
+            }
+        });
+
+
+        ImageView toMher = findViewById(R.id.mher);
         toMher.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
@@ -229,10 +290,11 @@ public class museums extends AppCompatActivity {
                 openMapButton.setOnClickListener(new View.OnClickListener() {
                     @Override
                     public void onClick(View view) {
-                        Uri gmmIntentUri = Uri.parse("geo:0,0?q=1600+Amphitheatre+Parkway,+Mountain+View,+California");
-                        Intent mapIntent = new Intent(Intent.ACTION_VIEW, gmmIntentUri);
-                        mapIntent.setPackage("com.google.android.apps.maps");
-                        startActivity(mapIntent);
+
+                        Intent intent = new Intent(Intent.ACTION_VIEW,
+                                Uri.parse("google.navigation:q=40.789640, 43.837997&mode=d"));
+                        intent.setPackage("com.google.android.apps.maps");
+                        startActivity(intent);
                     }
                 });
 
@@ -241,7 +303,7 @@ public class museums extends AppCompatActivity {
                     @Override
                     public void onClick(View view) {
                         Intent intent = new Intent(Intent.ACTION_DIAL);
-                        intent.setData(Uri.parse("tel:096145005"));
+                        intent.setData(Uri.parse("tel:31255174"));
                         startActivity(intent);
                     }
                 });
